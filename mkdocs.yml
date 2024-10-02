@@ -16,6 +16,7 @@ copyright: 'Copyright &copy; 2024 My Team'
 # Contents
 nav:
   - 首页: index.md
+  - 图论: GraphTheory.md
 
 # Theme
 theme:
