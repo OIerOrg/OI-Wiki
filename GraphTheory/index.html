@@ -1,0 +1,1261 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="OI-WiKi">
+      
+      
+        <meta name="author" content="OIerKimi Team">
+      
+      
+        <link rel="canonical" href="https://OIerKimi.github.io/OI-Wiki/GraphTheory/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>定义与记号 - OI-WiKi</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="OI-WiKi" class="md-header__button md-logo" aria-label="OI-WiKi" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OI-WiKi
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              定义与记号
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="pink"  aria-hidden="true"  type="radio" name="__palette" id="__palette_1">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OIerKimi/OI-Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OIerKimi/OI-Wiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="OI-WiKi" class="md-nav__button md-logo" aria-label="OI-WiKi" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    OI-WiKi
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OIerKimi/OI-Wiki" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OIerKimi/OI-Wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      基本定义
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      相邻相关
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      路径相关
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      连通性相关
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      特殊图
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      子图相关
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      约定
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">定义与记号<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>涉及常见或可能用到的概念的定义。关于更多，见参考资料。</p>
+<h2 id="_2">基本定义<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>图</strong>：一张图 $G$ 由若干个点和连接这些点的边构成。称点的集合为 <strong>点集</strong> $V$，边的集合为 <strong>边集</strong> $E$，记 $G = (V, E)$。</li>
+<li><strong>阶</strong>：图 $G$ 的点数 $|V|$ 称为 <strong>阶</strong>，记作 $|G|$。</li>
+<li><strong>无向图</strong>：若 $e \in E$ 没有方向，则称 $G$ 为 <strong>无向图</strong>。无向图的边记作 $e = (u, v)$，$u, v$ 之间无序。</li>
+<li><strong>有向图</strong>：若 $e \in E$ 有方向，则称 $G$ 为 <strong>有向图</strong>。有向图的边记作 $e = u \to v$ 或 $e = (u, v)$，$u, v$ 之间有序。无向边 $(u, v)$ 可以视为两条有向边 $u \to v$ 和 $v \to u$。</li>
+<li><strong>重边</strong>：端点和方向（有向图）完全相同的边称为 <strong>重边</strong>。</li>
+<li><strong>自环</strong>：连接相同点的边称为 <strong>自环</strong>。</li>
+</ul>
+<h2 id="_3">相邻相关<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>相邻</strong>：在无向图中，称 $u,v$ <strong>相邻</strong> 当且仅当存在 $e=(u,v)$。</li>
+<li><strong>邻域</strong>：在无向图中，点 $u$ 的 <strong>邻域</strong> 为所有与之相邻的点的集合，记作 $N(u)$。</li>
+<li><strong>邻边</strong>：在无向图中，与 $u$ 相连的边 $(u, v)$ 称为 $u$ 的 <strong>邻边</strong>。</li>
+<li><strong>出边 / 入边</strong>：在有向图中，从 $u$ 出发的边 $u \to v$ 称为 $u$ 的 <strong>出边</strong>，到达 $u$ 的边 $v \to u$ 称为 $u$ 的 <strong>入边</strong>。</li>
+<li><strong>度数</strong>：一个点的 <strong>度数</strong> 为与之关联的边的数量，记作 $d(u)$，$d(u) = \sum_{e \in E} ([u = eu] + [u = ev])$。每个点的自环对其度数产生 2 的贡献。</li>
+<li><strong>出度 / 入度</strong>：在有向图中，从 $u$ 出发的边的数量称为 $u$ 的 <strong>出度</strong>，记作 $d^+(u)$；到达 $u$ 的边的数量称为 $u$ 的 <strong>入度</strong>，记作 $d^-(u)$。
+ta</li>
+</ul>
+<h2 id="_4">路径相关<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>途径</strong>：连接一串结点的序列称为 <strong>途径</strong>，用点序列 $v_0 \cdots v_k$ 和边序列 $e_1 \cdots e_k$ 描述，其中 $e_i = (v_{i-1}, v_i)$。通常写为 $v_0 \to v_1 \to \cdots \to v_k$。</li>
+<li><strong>迹</strong>：不经过重复边的途径称为 <strong>迹</strong>。</li>
+<li><strong>回路</strong>：$v_0 = v_k$ 的迹称为 <strong>回路</strong>。</li>
+<li><strong>路径</strong>：不经过重复点的迹称为 <strong>路径</strong>，也称 <strong>简单路径</strong>。不经过重复点比不经过重复边强，所以不经过重复点的途径也是路径。注意题目中的简单路径可能指迹。</li>
+<li><strong>环</strong>：除 $v_0 = v_k$ 外所有点互不相同的途径称为 <strong>环</strong>，也称 <strong>圈</strong> 或 <strong>简单环</strong>。</li>
+</ul>
+<h2 id="_5">连通性相关<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>连通</strong>：对于无向图的两点 $u, v$，若存在途径使得 $v_0 = u$ 且 $v_k = v$，则称 $u, v$ <strong>连通</strong>。</li>
+<li><strong>弱连通</strong>：对于有向图的两点 $u, v$，若将有向边改为无向边后 $u, v$ 连通，则称 $u, v$ <strong>弱连通</strong>。</li>
+<li><strong>连通图</strong>：任意两点连通的无向图称为 <strong>连通图</strong>。</li>
+<li><strong>弱连通图</strong>：任意两点弱连通的有向图称为 <strong>弱连通图</strong>。</li>
+<li><strong>可达</strong>：对于有向图的两点 $u, v$，若存在途径使得 $v_0 = u$ 且 $v_k = v$，则称 $u$ <strong>可达</strong> $v$，记作 $u \Rightarrow v$。</li>
+<li>关于点双连通 / 边双连通 / 强连通，见对应章节。</li>
+</ul>
+<h2 id="_6">特殊图<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>简单图</strong>：不含重边和自环的图称为 <strong>简单图</strong>。</li>
+<li><strong>基图</strong>：将有向图的所有有向边替换为无向边得到的图称为该有向图的 <strong>基图</strong>。</li>
+<li><strong>有向无环图</strong>：不含环的有向图称为 <strong>有向无环图</strong>，简称 $\texttt{DAG}$（$\texttt{Directed Acyclic Graph}$）。</li>
+<li><strong>完全图</strong>：任意不同的两点之间恰有一条边的无向简单图称为 <strong>完全图</strong>。$n$ 阶完全图记作 $K_n$。</li>
+<li><strong>树</strong>：不含环的无向连通图称为 <strong>树</strong>。树是简单图，满足 $|V|=|E|+1$。若干棵（包括一棵）树组成的连通块称为 <strong>森林</strong>。相关知识点见 “树论”。</li>
+<li><strong>稀疏图 / 稠密图</strong>： $|E|$ 远小于 $|V|^2$ 的图称为 <strong>稀疏图</strong>，$|E|$ 接近 $|V|^2$ 的图称为 <strong>稠密图</strong>。这两个概念没有严格定义，用于讨论时间复杂度为 $O(|E|)$ 和 $O(|V|^2)$ 的算法。</li>
+</ul>
+<h2 id="_7">子图相关<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>子图</strong>：满足 $V' \subseteq V$ 且 $E' \subseteq E$ 的图 $G' = (V', E')$ 称为 $G = (V, E)$ 的 <strong>子图</strong>，记作 $G' \subseteq G$。</li>
+<li><strong>导出子图</strong>：选择若干个点以及两端都在该点集的所有边构成的子图称为该图的 <strong>导出子图</strong>。导出子图的形态仅由选择的点集 $V'$ 决定，称点集为 $V'$ 的导出子图为 $V'$ 导出的子图，记作 $G[V']$。</li>
+<li><strong>生成子图</strong>：$|V'| = |V|$ 的子图称为 <strong>生成子图</strong>。</li>
+<li><strong>极大子图（分量）</strong>：在子图满足某性质的前提下，称子图 $G'$ 是 <strong>极大</strong> 的，当且仅当不存在同样满足该性质的子图 $G''$ 且 $G' \subset G'' \subseteq G$。称 $G'$ 为满足该性质的 <strong>分量</strong>，如连通分量，点双连通分量。极大子图不能再扩张。例如，极大的连通的子图称为原图的连通分量，也就是我们熟知的连通块。</li>
+</ul>
+<h2 id="_8">约定<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>一般记 $n$ 表示点集大小 $|V|$，$m$ 表示边集大小 $|E|$。</li>
+</ul>
+<h1 id="_9">拓扑排序<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<h2 id="_10">计算方法<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>常用的拓扑排序算法包括基于深度优先搜索（$\texttt{DFS}$）的方法和基于入度表（$\texttt{Kahn}$ 算法）的方法。这里，我将描述基于入度表的方法，这种方法利用队列来实现：</p>
+<ol>
+<li><strong>初始化入度表</strong>：遍历图中所有的边，统计每个顶点的入度（即指向该顶点的边的数量）。</li>
+<li><strong>将入度为</strong> $0$ <strong>的顶点入队</strong>：所有在图中入度为 $0$ 的顶点，都可以作为拓扑排序的起点，将它们加入到一个队列中。</li>
+<li><strong>循环执行以下步骤，直到队列为空</strong>：</li>
+<li>从队列中取出一个顶点 $u$（即当前排序的下一个顶点），并将其输出为结果序列的一部分。</li>
+<li>遍历从顶点 $u$ 出发的所有边 $(u, v)$，将每个相邻顶点 $v$ 的入度减 $1$（表示边 $ (u, v) $ 被移除）。如果某个顶点 $v$ 的入度降为 $0$，则将 $v$ 入队。</li>
+</ol>
+<p>$\texttt{DAG}$ 的拓扑序性质很好，常用于解决建图题或图论类型的构造题，常常会将图转化为 $\texttt{DAG}$，进行 $\texttt{dp / dfs}$ 求解。</p>
+<h3 id="1-b3644">例 1: B3644 【模板】拓扑排序 / 家谱树<a class="headerlink" href="#1-b3644" title="Permanent link">&para;</a></h3>
+<h4 id="_11">题目描述<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>有个人的家族很大，辈分关系很混乱，请你帮整理一下这种关系。给出每个人的后代的信息。输出一个序列，使得每个人的后辈都比那个人后列出。</p>
+<p>第 $1$ 行一个整数 $N$（$1 \le N \le 100$），表示家族的人数。接下来 $N$ 行，第 $i$ 行描述第 $i$ 个人的后代编号 $a_{i,j}$，表示 $a_{i,j}$ 是 $i$ 的后代。每行最后是 $0$ 表示描述完毕。</p>
+<p>输出一个序列，使得每个人的后辈都比那个人后列出。如果有多种不同的序列，输出任意一种即可。</p>
+<h4 id="_12">代码<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<pre><code class="language-cpp">// B3644 【模板】拓扑排序 / 家谱树
+#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int MAXN = 10000;                                     // 最大顶点数，根据需要修改
+int n, x;                                                   // 顶点数
+vector&lt;int&gt; Edge[MAXN];                                     // 邻接表表示图
+int in_degree[MAXN];                                        // 入度数组
+void toposort() {
+    queue&lt;int&gt; Q;
+    for(int i = 1; i &lt;= n; i++) 
+        for(int j : Edge[i]) in_degree[j]++;                // 初始化入度表
+    for(int i = 1; i &lt;= n; i++) 
+        if(in_degree[i] == 0)  Q.push(i);                   // 将所有入度为0的顶点入队
+    while(!Q.empty()) {                                     // 进行拓扑排序
+        int u = Q.front(); Q.pop();
+        cout &lt;&lt; u &lt;&lt; &quot; &quot;;                                   // 输出顶点
+        for(int i : Edge[u]) {                              // 遍历u的所有邻接点
+            in_degree[i]--;
+            if(in_degree[i] == 0) 
+                Q.push(i);
+        }
+    }
+    cout &lt;&lt; endl;
+}
+int main() {
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i++)
+        while (cin &gt;&gt; x &amp;&amp; x) 
+            Edge[i].push_back(x);
+    toposort();
+    return 0;
+}
+</code></pre>
+<h3 id="2-cf463d-gargari-and-permutations-texttt1900">例 2: CF463D Gargari and Permutations $\texttt{*1900}$<a class="headerlink" href="#2-cf463d-gargari-and-permutations-texttt1900" title="Permanent link">&para;</a></h3>
+<h4 id="_13">题目描述<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>给你 $k$ 个长度为 $n$ 的排列，求这些排列的最长公共子序列的长度。</p>
+<h4 id="_14">思路<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>先 $O(kn^2)$ 求出拓扑序。然后按照拓扑序来 $\texttt{dp}$ 计算。</p>
+<h4 id="_15">代码<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn = 1010;
+int n, m, h[maxn], f[maxn], pos[maxn];
+bool flg[maxn][maxn];
+vector&lt;int&gt; g[maxn];
+int dfs(int u) {
+    if (f[u] != -1) return f[u];
+    f[u] = 0;
+    for (int v : g[u]) f[u] = max(f[u], dfs(v));
+    return ++f[u];
+}
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    memset(f, -1, sizeof f);
+    memset(flg, 1, sizeof flg);
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int k = 0; k &lt; m; k++) {
+        for (int i = 1, x; i &lt;= n; i++) { cin &gt;&gt; x, pos[x] = i; }
+        for (int i = 1; i &lt;= n; i++) {
+            for (int j = 1; j &lt;= n; j++) { flg[i][j] &amp;= pos[i] &lt; pos[j]; }
+        }
+    }
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 1; j &lt;= n; j++) {
+            if (flg[i][j]) g[i].push_back(j);
+        }
+    }
+    int ans = 0;
+    for (int i = 1; i &lt;= n; i++) { ans = max(ans, dfs(i)); }
+    cout &lt;&lt; ans &lt;&lt; '\n';
+    return 0;
+}
+</code></pre>
+<h1 id="_16">最短路问题算法<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h1>
+<h2 id="textttfloyd">$\texttt{Floyd}$ 算法<a class="headerlink" href="#textttfloyd" title="Permanent link">&para;</a></h2>
+<h3 id="_17">基本原理<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>Floyd-Warshall 算法是一种计算图中所有顶点对之间最短路径的算法。</p>
+<h3 id="_18">算法流程<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<ol>
+<li>初始化距离矩阵，对角线为0，其他为两点之间的边权重，若无直接边则为无穷大。</li>
+<li>对每个顶点 $k $，更新所有顶点对 $ (i, j) $ 的距离：<code>dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])</code>。</li>
+<li>重复步骤2，直到所有点都被考虑过。</li>
+</ol>
+<h3 id="_19">适用场景<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>适用于计算任意两点间的最短路径，特别是点数量不是很大时效果好。</p>
+<h3 id="_20">代码<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<pre><code class="language-cpp">void floydWarshall() {
+    for (int k = 1; k &lt;= n; k++) 
+        for (int i = 1; i &lt;=n; i++) 
+            for (int j = 1; j &lt;= n; j++) 
+                if (dist[i][k] + dist[k][j] &lt; dist[i][j]) 
+                    dist[i][j] = dist[i][k] + dist[k][j];
+}
+</code></pre>
+<h2 id="textttdijkstra">$\texttt{Dijkstra}$ 算法<a class="headerlink" href="#textttdijkstra" title="Permanent link">&para;</a></h2>
+<h3 id="_21">基本原理<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>$\texttt{Dijkstra}$ 算法用于在加权图中找到一个顶点到其他所有顶点的最短路径。</p>
+<h3 id="_22">算法流程<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<ol>
+<li>初始化距离数组，源点距离为 $0$，其余为无穷大。</li>
+<li>使用优先队列（或堆）来存储所有节点，优先级为节点的当前距离。</li>
+<li>从队列中取出距离最小的节点，更新其相邻节点的距离。</li>
+<li>重复步骤3，直到队列为空或找到目标节点。</li>
+</ol>
+<h3 id="_23">适用场景<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>适用于无负权边的图。</p>
+<h3 id="1-cf449b-jzzhu-and-cities-texttt2000">例 1 CF449B Jzzhu and Cities $\texttt{*2000}$<a class="headerlink" href="#1-cf449b-jzzhu-and-cities-texttt2000" title="Permanent link">&para;</a></h3>
+<h4 id="_24">题目描述<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>$n$ 个点，$m$ 条带权边的无向图，另外还有 $k$ 条特殊边，每条边连接 $1$ 和 $i$ 。</p>
+<p>问最多可以删除这 $k$ 条边中的多少条，使得每个点到 $1$ 的最短距离不变。</p>
+<h4 id="_25">思路<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h4>
+<p>跑一遍 $\texttt{Dijkstra}$，计算出相等路径的条数，判断删除。</p>
+<h4 id="_26">代码<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h4>
+<pre><code class="language-cpp">// 无向图
+#include &lt;bits/stdc++.h&gt;
+#define pii pair &lt;int, int&gt;
+using namespace std;
+const int N = 1e5 + 10;
+int n, m, k, x, y, z, ans;
+int dist[N], cnt[N], vis[N];
+vector &lt; pii &gt; edge[N];
+vector &lt; pii &gt; spe;
+
+priority_queue&lt;pii, vector&lt;pii&gt;, greater&lt;pii&gt;&gt; pq;
+
+void dijkstra(int start) {
+    for (int i = 1; i &lt;= n; i++) dist[i] = 1e9;
+    dist[start] = 0;
+    pq.push({0, start});
+
+    while (!pq.empty()) {
+        int d = pq.top().first;
+        int u = pq.top().second;
+        pq.pop();
+
+        if (vis[u]) continue;
+        vis[u] = 1;
+        for (pii i : edge[u]) {
+            if (dist[i.first] == dist[u] + i.second) cnt[i.first]++;
+            if (dist[i.first] &gt; dist[u] + i.second) {
+                dist[i.first] = dist[u] + i.second;
+                cnt[i.first] = 1;
+                pq.push({dist[i.first], i.first});
+            }
+        }
+    }
+}
+
+
+int main() {
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; k;
+    for (int i = 1; i &lt;= m; i++) {
+        cin &gt;&gt; x &gt;&gt; y &gt;&gt; z;
+        edge[x].push_back({y, z});
+        edge[y].push_back({x, z});
+    }
+    for (int i = 1; i &lt;= k; i++) {
+        cin &gt;&gt; y &gt;&gt; z;
+        spe.push_back({y, z});
+        edge[1].push_back({y, z});
+        edge[y].push_back({1, z});
+    }
+    dijkstra(1); // 算出每一个的距离。
+    for (pii i : spe) {
+        if (dist[i.first] &lt; i.second) ans++;
+        if (dist[i.first] == i.second &amp;&amp; cnt[i.first] &gt; 1) 
+            ans++, cnt[i.first]--;
+    }
+    cout &lt;&lt; ans &lt;&lt; '\n';
+}
+</code></pre>
+<h2 id="textttspfa">$\texttt{SPFA}$ 算法<a class="headerlink" href="#textttspfa" title="Permanent link">&para;</a></h2>
+<p>关于 $\texttt{SPFA}$, 他 __ 了。</p>
+<p><strong>基本原理</strong>：
+$\texttt{SPFA}$ 是 $\texttt{Bellman-Ford}$ 算法的一种改进，用于求解单源最短路径问题。它通过使用队列优化了算法的效率。</p>
+<p><strong>算法流程</strong>：</p>
+<ol>
+<li>初始化距离数组，源点距离为0，其余为无穷大。</li>
+<li>将源点入队。</li>
+<li>当队列非空时，取出队首元素，遍历其所有出边。</li>
+<li>如果通过当前点可以使得到达某个点的距离更短，则更新距离并将该点入队（如果它当前不在队列中）。</li>
+<li>重复步骤3和4，直到队列为空。</li>
+</ol>
+<p><strong>适用场景</strong>：
+适用于含负权边但无负权回路的图。</p>
+<h1 id="texttttarjan">$\texttt{Tarjan}$ 算法<a class="headerlink" href="#texttttarjan" title="Permanent link">&para;</a></h1>
+<h2 id="texttttrajan-textttscc">$\texttt{Trajan}$ 求 $\texttt{SCC}$<a class="headerlink" href="#texttttrajan-textttscc" title="Permanent link">&para;</a></h2>
+<h3 id="_27">算法描述<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<ul>
+<li>$\texttt{Tarjan}$ 算法用于在有向图中寻找强连通分量（$\texttt{SCC}$）。算法通过深度优先搜索（$\texttt{DFS}$）遍历图，并利用栈维护访问过的顶点，从而在回溯时能够识别并构成强连通分量。</li>
+</ul>
+<h3 id="_28">代码解释<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>s.push(x), vis[x] = 1;</code>：当前顶点 <code>x</code> 入栈，并标记为已访问。</li>
+<li><code>dfn[x] = low[x] = ++tim;</code>：为顶点 <code>x</code> 分配一个访问编号和最小可回溯编号。</li>
+<li>遍历 <code>x</code> 的每个邻接顶点 <code>i</code>：</li>
+<li>如果 <code>i</code> 未被访问（<code>!dfn[i]</code>），递归调用 <code>tarjan(i)</code>，并更新 <code>x</code> 的 <code>low</code> 值。</li>
+<li>如果 <code>i</code> 已在栈中（<code>vis[i]</code>），则更新 <code>x</code> 的 <code>low</code> 值。</li>
+<li>如果 <code>dfn[x] == low[x]</code>，说明找到了一个强连通分量的根节点：</li>
+<li>通过循环将栈中的元素出栈，直到遇到 <code>x</code>，同时为出栈的顶点分配相同的强连通分量编号，并累加对应的值。</li>
+</ul>
+<h3 id="_29">复杂度分析<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h3>
+<ul>
+<li>时间复杂度：$O(V + E)$，其中 $V$ 是顶点数，$E$ 是边数。</li>
+<li>空间复杂度：$O(V)$，主要是用于存储栈、访问标记、时间戳等信息。</li>
+</ul>
+<p>通过这个函数实现，$\texttt{Tarjan}$ 算法能有效地在有向图中识别所有的强连通分量，并能处理每个分量的累计值问题。希望这样的笔记能帮助您更好地理解和使用 $\texttt{Tarjan}$ 算法。</p>
+<h3 id="_30">代码<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h3>
+<pre><code class="language-cpp">void tarjan(int x) {
+    s.push(x), vis[x] = 1;
+    dfn[x] = low[x] = ++tim;
+    for (int i : Edge[x]) {
+        if (!dfn[i]) {
+            tarjan(i);
+            low[x] = min(low[x], low[i]);
+            low[x] = min(low[x], dfn[i]);
+        } else if (vis[i]) {
+            low[x] = min(low[x], dfn[i]);
+            low[x] = min(low[x], low[i]);
+        }
+    }
+
+    if (dfn[x] == low[x]) {
+        ++count_scc;
+        while (s.top() != x) {
+            color[s.top()] = count_scc;
+            sum[count_scc] += val[s.top()];
+            vis[s.top()] = false;
+            s.pop();
+        }
+        color[s.top()] = count_scc;
+        sum[count_scc] += val[s.top()];
+        vis[s.top()] = false;
+        s.pop();
+    }
+}
+</code></pre>
+<h3 id="1-cf949c-data-center-maintenance">例 1: <a href="https://codeforces.com/problemset/problem/949/C/">CF949C</a> Data Center Maintenance<a class="headerlink" href="#1-cf949c-data-center-maintenance" title="Permanent link">&para;</a></h3>
+<h4 id="_31">题意<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h4>
+<p>题意 : $n$ 个点，每个点有一个值 $a_i$。$m$ 条边，每个条边链接 $2$ 个点 $x，y$ 使得 $a_x \not =a_y$。选择最少的 $k(1 \le k \le n)$ 个点，使 $a_i = (a_i + 1) \mod h$，$m$ 个条件仍成立。</p>
+<h4 id="_32">题解<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h4>
+<ol>
+<li>对于每一条边，如果 $x_i = y_i + 1$ 则把 $x_i$ 向 $y_i$ 连一条边</li>
+<li>缩点</li>
+<li>$\texttt{DAG}$ 上跑没有出度权值最小的点。</li>
+</ol>
+<h4 id="_33">代码<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define int long long
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; &quot; &lt;&lt; x &lt;&lt; '\n';
+#define multi false
+using namespace std;
+const int N = 1e5 + 10;
+int t = 1, n, m, h, x, y, tim, scc_count, ansid;
+int val[N], dfn[N], low[N], vis[N], color[N], siz[N];
+stack &lt;int&gt; s;
+vector &lt;int&gt; Edge[N];
+vector &lt;int&gt; scc[N];
+void tarjan (int x) {
+    vis[x] = 1; s.push(x);
+    dfn[x] = low[x] = ++tim;
+    for (int i : Edge[x]) {
+        if (!dfn[i]) {
+            tarjan(i);
+            low[x] = min(low[x], low[i]);
+            low[x] = min(low[x], dfn[i]);
+        } else if (vis[i]) {
+            low[x] = min(low[x], low[i]);
+            low[x] = min(low[x], dfn[i]);
+        }
+    }
+    if (low[x] == dfn[x]) {
+        scc_count++;
+        while (s.top() != x) {
+            color[s.top()] = scc_count;
+            vis[s.top()] = 0;
+            siz[scc_count]++; 
+            s.pop();
+        }
+        color[s.top()] = scc_count;
+        vis[s.top()] = 0;
+        siz[scc_count]++; 
+        s.pop();
+    }
+    return;
+}
+void solve() {
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; h;
+    for (int i = 1; i &lt;= n; i++) cin &gt;&gt; val[i];
+    for (int i = 1; i &lt;= m; i++) {
+        cin &gt;&gt; x &gt;&gt; y;
+        if ((val[x] + 1) % h == val[y]) Edge[x].push_back(y);
+        if (val[x] == (val[y] + 1) % h) Edge[y].push_back(x);
+    }
+    for (int i = 1; i &lt;= n; i++) 
+        if (!dfn[i]) tarjan(i);
+    for (int i = 1; i &lt;= n; i++)
+        for (int j : Edge[i])
+            if (color[i] != color[j])
+                scc[color[i]].push_back(color[j]);
+    for (int i = 1; i &lt;= scc_count; i++) 
+        if (scc[i].size() == 0 &amp;&amp; (siz[i] &lt; siz[ansid] || ansid == 0))
+            ansid = i;
+    cout &lt;&lt; siz[ansid] &lt;&lt; '\n';
+    for (int i = 1; i &lt;= n; i++)
+        if (color[i] == ansid)
+            cout &lt;&lt; i &lt;&lt; ' ';
+    return;
+}
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    if (multi) cin &gt;&gt; t;
+    while (t--) solve();
+    return 0;
+}
+</code></pre>
+<h2 id="texttttrajan">$\texttt{Trajan}$ 缩点<a class="headerlink" href="#texttttrajan" title="Permanent link">&para;</a></h2>
+<h3 id="_34">算法描述<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h3>
+<ol>
+<li>求出所有的 $\texttt{SCC}$。</li>
+<li>对于每个 $\texttt{SCC}$，把所有的点缩成一个点。并求出其权值(这个是要根据题意来的，比如<a href="https://www.luogu.com.cn/problem/P3387">例题</a>是求 $\texttt{SCC}$ 的权值和)。</li>
+<li>对于原图中的每一条边，如果这条边连接的两个点不在同一个 $\texttt{SCC}$ 中，则把这条边连到两个 $\texttt{SCC}$ 上。</li>
+<li>对于缩点后的图，形成了一个 $\texttt{DAG}$。</li>
+</ol>
+<h3 id="1-p3387">例1: <a href="https://www.luogu.com.cn/problem/P3387">P3387</a><a class="headerlink" href="#1-p3387" title="Permanent link">&para;</a></h3>
+<h4 id="_35">题意<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h4>
+<p>给定一个 $n$ 个点 $m$ 条边有向图，每个点有一个权值，求一条路径，使路径经过的点权值之和最大。你只需要求出这个权值和。</p>
+<p>允许多次经过一条边或者一个点，但是，重复经过的点，权值只计算一次。</p>
+<h4 id="_36">题解<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h4>
+<ol>
+<li>求出所有的 $\texttt{SCC}$。</li>
+<li>对于每个 $\texttt{SCC}$，把所有的点缩成一个点，并求出其权值和。</li>
+<li>对于原图中的每一条边，如果这条边连接的两个点不在同一个 $\texttt{SCC}$ 中，则把这条边连到两个 $\texttt{SCC}$ 上。</li>
+<li>对于缩点后的图，形成了一个 $\texttt{DAG}$。</li>
+<li>在 $\texttt{DAG}$ 上跑 $\texttt{DP}$，求出路径经过的点权值之和的最大值。</li>
+</ol>
+<h4 id="_37">代码<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+#define int long long
+#define debug(x) cerr &lt;&lt; #x &lt;&lt; &quot; &quot; &lt;&lt; x &lt;&lt; '\n';
+#define multi false
+using namespace std;
+const int N = 1e5 + 10;
+const int M = 1e5 + 10;
+int t = 1, n, m, tim, count_scc, ans;
+int x[M], y[M], val[N], color[N], sum[N], f[N];
+int vis[N], low[N], dfn[N];
+vector &lt;int&gt; Edge[N];
+vector &lt;int&gt; scc[N]; // scc edge
+stack &lt;int&gt; s;
+void tarjan(int x) {
+    s.push(x), vis[x] = 1;
+    dfn[x] = low[x] = ++tim;
+    for (int i : Edge[x]) {
+        if (!dfn[i]) {
+            tarjan(i);
+            low[x] = min(low[x], low[i]);
+            low[x] = min(low[x], dfn[i]);
+        } else if (vis[i]) {
+            low[x] = min(low[x], dfn[i]);
+            low[x] = min(low[x], low[i]);
+        }
+    }
+
+    if (dfn[x] == low[x]) {
+        ++count_scc;
+        while (s.top() != x) {
+            color[s.top()] = count_scc;
+            sum[count_scc] += val[s.top()];
+            vis[s.top()] = false;
+            s.pop();
+        }
+        color[s.top()] = count_scc;
+        sum[count_scc] += val[s.top()];
+        vis[s.top()] = false;
+        s.pop();
+    }
+}
+int dfs(int x) {
+    if (f[x]) return f[x];
+    f[x] = sum[x];
+    for (int i : scc[x]) 
+        f[x] = max(f[x], dfs(i) + sum[x]);
+    return f[x];
+}
+void solve() {
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 1; i &lt;= n; i++) cin &gt;&gt; val[i];
+    for (int i = 1; i &lt;= m; i++) {
+        cin &gt;&gt; x[i] &gt;&gt; y[i];
+        Edge[x[i]].push_back(y[i]);
+    }
+    for (int i = 1; i &lt;= n; i++) 
+        if (!dfn[i]) 
+            tarjan(i);
+    for (int i = 1; i &lt;= m; i++) 
+        if (color[x[i]] != color[y[i]])
+            scc[color[x[i]]].push_back(color[y[i]]);
+    for (int i = 1; i &lt;= n; i++) 
+        ans = max(ans, dfs(i));
+    cout &lt;&lt; ans &lt;&lt; '\n';
+    return;
+}
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+#ifndef ONLINE_JUDGE
+    freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
+#endif
+    if (multi) cin &gt;&gt; t;
+    while (t--) solve();
+    return 0;
+}
+</code></pre>
+<h3 id="_38">附件<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h3>
+<p><img alt="1.png" src="https://img.picui.cn/free/2024/09/04/66d835343d738.png" /></p>
+<h2 id="tarjan">Tarjan 割桥<a class="headerlink" href="#tarjan" title="Permanent link">&para;</a></h2>
+<p><img alt="2.png" src="https://img.picui.cn/free/2024/09/04/66d835341d65f.png" /></p>
+<h1 id="texttttwo-sat-2-sat">$\texttt{Two-SAT (2-SAT)}$ 问题<a class="headerlink" href="#texttttwo-sat-2-sat" title="Permanent link">&para;</a></h1>
+<h2 id="_39">算法描述<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>SAT 是适定性（Satisfiability）问题的简称。一般形式为 k - 适定性问题，简称 k-SAT。而当 $k&gt;2$ 时该问题为 NP 完全的。所以我们只研究 $k=2$ 的情况。</p>
+</blockquote>
+<p>2-SAT，简单的说就是给出 $n$ 个集合，每个集合有两个元素，已知若干个 $\langle a,b \rangle$，表示 $a$ 与 $b$ 矛盾（其中 $a$ 与 $b$ 属于不同的集合）。然后从每个集合选择一个元素，判断能否一共选 $n$ 个两两不矛盾的元素。显然可能有多种选择方案，一般题中只需要求出一种即可。</p>
+<h2 id="_40">常用解决方法<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<h3 id="tarjan-scc">Tarjan <a href="#-%E7%BC%A9%E7%82%B9">SCC 缩点</a><a class="headerlink" href="#tarjan-scc" title="Permanent link">&para;</a></h3>
+<p>算法考究在建图这点，我们举个例子来讲：</p>
+<p>假设有 ${a1,a2}$ 和 ${b1,b2}$ 两对，已知 $a1$ 和 $b2$ 间有矛盾，于是为了方案自洽，由于两者中必须选一个，所以我们就要拉两条有向边 $(a1,b1)$ 和 $(b2,a2)$ 表示选了 $a1$ 则必须选 $b1$，选了 $b2$ 则必须选 $a2$ 才能够自洽。</p>
+<p>然后通过这样子建边我们跑一遍 Tarjan SCC 判断是否有一个集合中的两个元素在同一个 SCC 中，若有则输出不可能，否则输出方案。构造方案只需要把几个不矛盾的 SCC 拼起来就好了。</p>
+<p>输出方案时可以通过变量在图中的拓扑序确定该变量的取值。如果变量 $x$ 的拓扑序在 $\neg x$ 之后，那么取 $x$ 值为真。应用到 Tarjan 算法的缩点，即 $x$ 所在 SCC 编号在 $\neg x$ 之前时，取 $x$ 为真。因为 Tarjan 算法求强连通分量时使用了栈，所以 Tarjan 求得的 SCC 编号相当于反拓扑序。</p>
+<p>显然地，时间复杂度为 $O(n+m)$。</p>
+<h3 id="_41">暴搜<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h3>
+<p>就是沿着图上一条路径，如果一个点被选择了，那么这条路径以后的点都将被选择，那么，出现不可行的情况就是，存在一个集合中两者都被选择了。</p>
+<p>那么，我们只需要枚举一下就可以了，数据不大，答案总是可以出来的。</p>
+<pre><code class="language-cpp">
+// 来源：刘汝佳白书第 323 页
+struct Twosat {
+    int n;
+    vector&lt;int&gt; g[maxn * 2];
+    bool mark[maxn * 2];
+    int s[maxn * 2], c;
+
+    bool dfs(int x) {
+        if (mark[x ^ 1]) return false;
+        if (mark[x]) return true;
+        mark[x] = true;
+        s[c++] = x;
+        for (int i = 0; i &lt; (int)g[x].size(); i++)
+            if (!dfs(g[x][i])) return false;
+        return true;
+    }
+
+    void init(int n) {
+        this-&gt;n = n;
+        for (int i = 0; i &lt; n * 2; i++) g[i].clear();
+        memset(mark, 0, sizeof(mark));
+    }
+
+    void add_clause(int x, int y) { // 这个函数随题意变化
+        g[x].push_back(y ^ 1); // 选了 x 就必须选 y^1
+        g[y].push_back(x ^ 1);
+    }
+
+    bool solve() {
+        for (int i = 0; i &lt; n * 2; i += 2)
+            if (!mark[i] &amp;&amp; !mark[i + 1]) {
+                c = 0;
+                if (!dfs(i)) {
+                    while (c &gt; 0) mark[s[--c]] = false;
+                    if (!dfs(i + 1)) return false;
+                }
+            }
+        return true;
+    }
+};
+
+</code></pre>
+<h2 id="_42">例题<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<h3 id="1-p47822-sat">例 1 <a href="https://www.luogu.com.cn/problem/P4782">P4782</a>【模板】2-SAT<a class="headerlink" href="#1-p47822-sat" title="Permanent link">&para;</a></h3>
+<h4 id="_43">题目描述<a class="headerlink" href="#_43" title="Permanent link">&para;</a></h4>
+<p>有 $n$ 个布尔变量 $x_1$$\sim$$x_n$，另有 $m$ 个需要满足的条件，每个条件的形式都是 「$x_i$ 为 <code>true</code> / <code>false</code> 或 $x_j$ 为 <code>true</code> / <code>false</code>」。比如 「$x_1$ 为真或 $x_3$ 为假」、「$x_7$ 为假或 $x_2$ 为假」。</p>
+<h4 id="_44">题目分析<a class="headerlink" href="#_44" title="Permanent link">&para;</a></h4>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+constexpr int N = 2e6 + 5; // 两倍空间
+int cnt, hd[N], nxt[N], to[N];
+void add(int u, int v) {nxt[++cnt] = hd[u], hd[u] = cnt, to[cnt] = v;}
+int n, m, dn, dfn[N], low[N], top, stc[N], vis[N], cn, col[N];
+void tarjan(int id) {
+  dfn[id] = low[id] = ++dn, vis[id] = 1, stc[++top] = id;
+  for(int i = hd[id]; i; i = nxt[i]) {
+    int it = to[i];
+    if(!dfn[it]) tarjan(it), low[id] = min(low[id], low[it]);
+    else if(vis[it]) low[id] = min(low[id], dfn[it]);
+  }
+  if(low[id] == dfn[id]) {
+    col[id] = ++cn;
+    while(stc[top] != id) col[stc[top]] = cn, vis[stc[top--]] = 0;
+    vis[id] = 0, top--;
+  }
+}
+int main() {
+  cin &gt;&gt; n &gt;&gt; m;
+  for(int i = 1; i &lt;= m; i++) {
+    int u, a, v, b;
+    scanf(&quot;%d%d%d%d&quot;, &amp;u, &amp;a, &amp;v, &amp;b);
+    add(u + (!a) * n, v + b * n); // 当 u 等于 !a 时，v 必须等于 b
+    add(v + (!b) * n, u + a * n);
+  }
+  for(int i = 1; i &lt;= n * 2; i++) if(!dfn[i]) tarjan(i); // 遍历所有的点
+  for(int i = 1; i &lt;= n; i++) if(col[i] == col[i + n]) puts(&quot;IMPOSSIBLE&quot;), exit(0); // 如果两个相互矛盾的在一起（可以互推）-&gt; IMPOSSIBLE
+  puts(&quot;POSSIBLE&quot;);
+  for(int i = 1; i &lt;= n; i++) putchar('0' + (col[i + n] &lt; col[i])), putchar(' '); // 选 col 较小的
+  return 0;
+}
+</code></pre>
+<h3 id="2-hdu3062-party">例 2. <a href="https://acm.hdu.edu.cn/showproblem.php?pid=3062">HDU3062</a> Party<a class="headerlink" href="#2-hdu3062-party" title="Permanent link">&para;</a></h3>
+<h4 id="_45">题目描述<a class="headerlink" href="#_45" title="Permanent link">&para;</a></h4>
+<p>有 n 对夫妻被邀请参加一个聚会，因为场地的问题，每对夫妻中只有 $1$ 人可以列席。在 $2n$ 个人中，某些人之间有着很大的矛盾（当然夫妻之间是没有矛盾的），有矛盾的 $2$ 个人是不会同时出现在聚会上的。有没有可能会有 $n$ 个人同时列席？</p>
+<h4 id="_46">题目分析<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h4>
+<p>按照我们上面的分析，如果 $a1$ 中的丈夫和 $a2$ 中的妻子不合，我们就把 $a1$ 中的丈夫和 $a2$ 中的丈夫连边，把 $a2$ 中的妻子和 $a1$ 中的妻子连边，然后缩点染色判断即可。</p>
+<pre><code class="language-cpp">#include &lt;algorithm&gt;
+#include &lt;cstdio&gt;
+#include &lt;cstring&gt;
+#include &lt;iostream&gt;
+#define maxn 2018
+#define maxm 4000400
+using namespace std;
+int Index, instack[maxn], DFN[maxn], LOW[maxn];
+int tot, color[maxn];
+int numedge, head[maxn];
+
+struct Edge {
+  int nxt, to;
+} edge[maxm];
+
+int sta[maxn], top;
+int n, m;
+
+void add(int x, int y) {
+  edge[++numedge].to = y;
+  edge[numedge].nxt = head[x];
+  head[x] = numedge;
+}
+
+void tarjan(int x) {  // 缩点看不懂请移步强连通分量上面有一个链接可以点。
+  sta[++top] = x;
+  instack[x] = 1;
+  DFN[x] = LOW[x] = ++Index;
+  for (int i = head[x]; i; i = edge[i].nxt) {
+    int v = edge[i].to;
+    if (!DFN[v]) {
+      tarjan(v);
+      LOW[x] = min(LOW[x], LOW[v]);
+    } else if (instack[v])
+      LOW[x] = min(LOW[x], DFN[v]);
+  }
+  if (DFN[x] == LOW[x]) {
+    tot++;
+    do {
+      color[sta[top]] = tot;  // 染色
+      instack[sta[top]] = 0;
+    } while (sta[top--] != x);
+  }
+}
+
+bool solve() {
+  for (int i = 0; i &lt; 2 * n; i++)
+    if (!DFN[i]) tarjan(i);
+  for (int i = 0; i &lt; 2 * n; i += 2)
+    if (color[i] == color[i + 1]) return 0;
+  return 1;
+}
+
+void init() {
+  top = 0;
+  tot = 0;
+  Index = 0;
+  numedge = 0;
+  memset(sta, 0, sizeof(sta));
+  memset(DFN, 0, sizeof(DFN));
+  memset(instack, 0, sizeof(instack));
+  memset(LOW, 0, sizeof(LOW));
+  memset(color, 0, sizeof(color));
+  memset(head, 0, sizeof(head));
+}
+
+int main() {
+  while (~scanf(&quot;%d%d&quot;, &amp;n, &amp;m)) {
+    init();
+    for (int i = 1; i &lt;= m; i++) {
+      int a1, a2, c1, c2;
+      scanf(&quot;%d%d%d%d&quot;, &amp;a1, &amp;a2, &amp;c1, &amp;c2);  // 自己做的时候别用 cin 会被卡
+      add(2 * a1 + c1, 2 * a2 + 1 - c2);
+      // 对于第 i 对夫妇，我们用 2i+1 表示丈夫，2i 表示妻子。
+      add(2 * a2 + c2, 2 * a1 + 1 - c1);
+    }
+    if (solve())
+      printf(&quot;YES\n&quot;);
+    else
+      printf(&quot;NO\n&quot;);
+  }
+  return 0;
+}
+</code></pre>
+<h3 id="3-gym-101987-tv-show-game">例 3. <a href="http://codeforces.com/gym/101987">Gym 101987</a> TV Show Game<a class="headerlink" href="#3-gym-101987-tv-show-game" title="Permanent link">&para;</a></h3>
+<h4 id="_47">题目描述<a class="headerlink" href="#_47" title="Permanent link">&para;</a></h4>
+<p>有 $k(k&gt;3)$ 盏灯，每盏灯是红色或者蓝色，但是初始的时候不知道灯的颜色。有 $n$ 个人，每个人选择 3 盏灯并猜灯的颜色。一个人猜对两盏灯或以上的颜色就可以获得奖品。判断是否存在一个灯的着色方案使得每个人都能领奖，若有则输出一种灯的着色方案。</p>
+<h4 id="_48">题目分析<a class="headerlink" href="#_48" title="Permanent link">&para;</a></h4>
+<p>这道题在判断是否有方案的基础上，在有方案时还要输出一个可行解。</p>
+<p>根据 <a href="https://wenku.baidu.com/view/31fd7200bed5b9f3f90f1ce2.html">伍昱 -《由对称性解 2-sat 问题》</a>，我们可以得出：如果要输出 2-SAT 问题的一个可行解，只需要在 tarjan 缩点后所得的 DAG 上自底向上地进行选择和删除。</p>
+<p>具体实现的时候，可以通过构造 DAG 的反图后在反图上进行拓扑排序实现；也可以根据 tarjan 缩点后，所属连通块编号越小，节点越靠近叶子节点这一性质，优先对所属连通块编号小的节点进行选择。</p>
+<p>下面给出第二种实现方法的代码。</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+const int maxn = 1e4 + 5;
+const int maxk = 5005;
+
+int n, k;
+int id[maxn][5];
+char s[maxn][5][5], ans[maxk];
+bool vis[maxn];
+
+struct Edge {
+  int v, nxt;
+} e[maxn * 100];
+
+int head[maxn], tot = 1;
+
+void addedge(int u, int v) {
+  e[tot].v = v;
+  e[tot].nxt = head[u];
+  head[u] = tot++;
+}
+
+int dfn[maxn], low[maxn], color[maxn], stk[maxn], ins[maxn], top, dfs_clock, c;
+
+void tarjan(int x) {  // tarjan算法求强联通
+  stk[++top] = x;
+  ins[x] = 1;
+  dfn[x] = low[x] = ++dfs_clock;
+  for (int i = head[x]; i; i = e[i].nxt) {
+    int v = e[i].v;
+    if (!dfn[v]) {
+      tarjan(v);
+      low[x] = min(low[x], low[v]);
+    } else if (ins[v])
+      low[x] = min(low[x], dfn[v]);
+  }
+  if (dfn[x] == low[x]) {
+    c++;
+    do {
+      color[stk[top]] = c;
+      ins[stk[top]] = 0;
+    } while (stk[top--] != x);
+  }
+}
+
+int main() {
+  scanf(&quot;%d %d&quot;, &amp;k, &amp;n);
+  for (int i = 1; i &lt;= n; i++) {
+    for (int j = 1; j &lt;= 3; j++) scanf(&quot;%d%s&quot;, &amp;id[i][j], s[i][j]);
+
+    for (int j = 1; j &lt;= 3; j++) {
+      for (int k = 1; k &lt;= 3; k++) {
+        if (j == k) continue;
+        int u = 2 * id[i][j] - (s[i][j][0] == 'B');
+        int v = 2 * id[i][k] - (s[i][k][0] == 'R');
+        addedge(u, v);
+      }
+    }
+  }
+
+  for (int i = 1; i &lt;= 2 * k; i++)
+    if (!dfn[i]) tarjan(i);
+
+  for (int i = 1; i &lt;= 2 * k; i += 2)
+    if (color[i] == color[i + 1]) {
+      puts(&quot;-1&quot;);
+      return 0;
+    }
+
+  for (int i = 1; i &lt;= 2 * k; i += 2) {
+    int f1 = color[i], f2 = color[i + 1];
+    if (vis[f1]) {
+      ans[(i + 1) &gt;&gt; 1] = 'R';
+      continue;
+    }
+    if (vis[f2]) {
+      ans[(i + 1) &gt;&gt; 1] = 'B';
+      continue;
+    }
+    if (f1 &lt; f2) {
+      vis[f1] = 1;
+      ans[(i + 1) &gt;&gt; 1] = 'R';
+    } else {
+      vis[f2] = 1;
+      ans[(i + 1) &gt;&gt; 1] = 'B';
+    }
+  }
+  ans[k + 1] = 0;
+  printf(&quot;%s\n&quot;, ans + 1);
+  return 0;
+}
+</code></pre>
+<h4 id="4-cf1971h-1-texttt2100">例 4. <a href="https://www.luogu.com.cn/problem/CF1971H">CF1971H ±1</a> $\texttt{*2100}$<a class="headerlink" href="#4-cf1971h-1-texttt2100" title="Permanent link">&para;</a></h4>
+<!---
+[洛谷 P5782 和平委员会](https://www.luogu.com.cn/problem/P5782)
+
+POJ3683 [牧师忙碌日](http://poj.org/problem?id=3683)
+--->
+
+<p>我们发现要想满足要求，就要满足以下条件：</p>
+<ul>
+<li>每一列都有且恰好仅有一个 $-1$。</li>
+</ul>
+<p>我们令 $g_{i,0}$ 表示 $a_i$ 必须取 $-1$，$g_{i,1}$ 必须取 $1$。</p>
+<p>我们考虑两个在同一列的数 $a_i,a_j$：</p>
+<ol>
+<li>若 $a_i&lt;0\wedge a_j&lt;0$，若 $-a_i=-1,-a_j=1$，则 $a_i=1,a_j=-1$，将 $g_{i,1}$ 与 $g_{j,0}$ 连边。</li>
+<li>若 $a_i&lt;0\wedge a_j&gt;0$，若 $-a_i=-1,a_j=1$，则 $a_i=1,a_j=1$，将 $g_{i,1}$ 与 $g_{j,1}$ 连边。</li>
+<li>若 $a_i&gt;0\wedge a_j&lt;0$，若 $-a_i=1,a_j=-1$，则 $a_i=-1,a_j=-1$，将 $g_{i,0}$ 与 $g_{j,0}$ 连边。</li>
+<li>若 $a_i&gt;0\wedge a_j&gt;0$，若 $-a_i=1,a_j=1$，则 $a_i=-1,a_j=1$，将 $g_{i,0}$ 与 $g_{j,1}$ 连边。</li>
+</ol>
+<p>然后跑一遍 $\texttt{tarjan}$，求 $\texttt{SCC}$，考虑是否有解即可。</p>
+<p><a href="https://codeforces.com/problemset/submission/1971/277035791">Code</a></p>
+<h1 id="_49">参考资料<a class="headerlink" href="#_49" title="Permanent link">&para;</a></h1>
+<ul>
+<li><a href="https://www.cnblogs.com/alex-wei/p/basic_graph_theory.html">图论 I</a></li>
+<li><a href="https://oi.wiki">OI-WiKi</a></li>
+</ul>
+<details>
+<summary>施工进度</summary>
+
+- [X] 拓扑排序
+- [X] $\texttt{Floyd}$ 算法求最短路
+- [X] $\texttt{Dijstra}$ 算法求最短路
+- [X] $\texttt{SPFA}$ 算法求最短路
+- [X] $\texttt{Tarjan}$ 算法求强连通分量
+- [X] 缩点
+- [X] 2-SAT
+- [ ] 最小生成树
+- [ ] $\texttt{Kruskal}$ 算法
+- [ ] $\texttt{Prim}$ 算法
+- [ ] 欧拉回路
+- [ ] 欧拉路径
+- [ ] 欧拉图
+- [ ] 二分图
+- [ ] 最大匹配
+- [ ] 最大流
+- [ ] 最小割
+- [ ] 最小费用最大流
+- [ ] 最短路径树
+- [ ] 最长路径树
+- [ ] 最长路
+</details>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2024 My Team
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>
