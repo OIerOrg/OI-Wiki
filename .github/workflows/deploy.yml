@@ -3,7 +3,7 @@ name: Deploy MkDocs to GitHub Pages
 on:
   push:
     branches:
-      - main  # 触发部署的分支，可以根据实际情况调整
+      - main  # 根据您的默认分支名称调整
 
 jobs:
   deploy:
@@ -12,11 +12,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 确保检出所有历史记录
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'  # 指定 Python 版本
+          python-version: '3.x'  # 指定所需的 Python 版本
 
       - name: Install dependencies
         run: |
@@ -29,5 +31,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: ./site
