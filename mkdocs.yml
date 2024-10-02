@@ -1,0 +1,16 @@
+site_name: OI Wiki
+site_url: https://OIerKimi.github.io/OI-Wiki/
+repo_url: https://github.com/OIerKimi/OI-Wiki
+repo_name: GitHub
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+nav:
+  - Home: index.md
