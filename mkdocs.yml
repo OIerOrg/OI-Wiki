@@ -1,16 +1,47 @@
-site_name: OI Wiki
-site_url: https://OIerKimi.github.io/OI-Wiki/
-repo_url: https://github.com/OIerKimi/OI-Wiki
-repo_name: GitHub
+# Project Information
+site_name: OI-WiKi
+site_description: OI-WiKi
+site_author: OIerKimi Team
+site_url: https://OIerKimi.github.io/OI-Wiki
+strict: false
 
+# Repository
+repo_name: 'OIerKimi/OI-Wiki'
+repo_url: 'https://github.com/OIerKimi/OI-Wiki'
+edit_uri: 'https://github.com/OIerKimi/OI-Wiki/edit/main/docs/'
+
+# Copyright
+copyright: 'Copyright &copy; 2024 My Team'
+
+# Contents
+nav:
+  - 首页: index.md
+
+# Theme
 theme:
-  name: 'material'
+  name: material
+  language: 'zh'
   palette:
-    primary: 'indigo'
-    accent: 'indigo'
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: blue
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: pink
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
 
-nav:
-  - Home: index.md
+# Plugins
+plugins:
+  - search
+
+# Markdown Extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+  - tables
+  - fenced_code
+  # 添加其他扩展...
