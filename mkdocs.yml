@@ -38,6 +38,7 @@ theme:
 # Plugins
 plugins:
   - search
+  - mkdocs-katex
 
 # Markdown Extensions
 markdown_extensions:
