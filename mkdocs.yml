@@ -38,7 +38,6 @@ theme:
 # Plugins
 plugins:
   - search                       # 搜索插件
-  - mkdocs-katex                 # KaTeX 支持，用于数学公式
   - git-revision-date-localized  # 显示文件的最后修改日期
   - minify                       # 压缩 HTML 文件
   - awesome-pages                # 简化导航栏页面管理
@@ -59,3 +58,4 @@ markdown_extensions:
       permalink: true            # 为目录添加永久链接
   - tables                        # 表格支持
   - fenced_code                   # 支持围栏代码块
+  - pymdownx.arithmatex           # 数学公式支持，替代 mkdocs-katex
