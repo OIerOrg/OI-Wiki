@@ -37,13 +37,25 @@ theme:
 
 # Plugins
 plugins:
-  - search
-  - mkdocs-katex
+  - search                       # 搜索插件
+  - mkdocs-katex                 # KaTeX 支持，用于数学公式
+  - git-revision-date-localized  # 显示文件的最后修改日期
+  - minify                       # 压缩 HTML 文件
+  - awesome-pages                # 简化导航栏页面管理
+  - localsearch                  # 本地搜索插件，替代默认的网络搜索
+  - mermaid2                     # 支持 mermaid 流程图和时序图
+  - pdf-export                   # PDF 导出功能
+  - redirects                    # 重定向插件，防止 404 错误
+  - exclude:
+      glob:
+        - "*.tmp"                # 排除不需要的文件
+        - "drafts/*"
+  - macros                       # 支持自定义宏
+  - video                        # 嵌入视频
 
 # Markdown Extensions
 markdown_extensions:
   - toc:
-      permalink: true
-  - tables
-  - fenced_code
-  # 添加其他扩展...
+      permalink: true            # 为目录添加永久链接
+  - tables                        # 表格支持
+  - fenced_code                   # 支持围栏代码块
