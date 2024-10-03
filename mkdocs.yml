@@ -49,8 +49,6 @@ plugins:
       glob:
         - "*.tmp"                # 排除不需要的文件
         - "drafts/*"
-  - macros                       # 支持自定义宏
-  - video                        # 嵌入视频
 
 # Markdown Extensions
 markdown_extensions:
