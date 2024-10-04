@@ -1,40 +1,61 @@
-name: Deploy MkDocs to GitHub Pages
+name: Build and Deploy MkDocs
 
 on:
   push:
     branches:
-      - main  # 根据您的默认分支名称调整
+      - main  # 在主分支推送时执行
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  # 确保检出所有历史记录
+        uses: actions/checkout@v2
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # 指定所需的 Python 版本
+          python-version: '3.8'
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs-material  # 安装 MkDocs 主题
-          pip install mkdocs-material pymdown-extensions mkdocs-git-revision-date-localized-plugin mkdocs-minify-plugin mkdocs-awesome-pages-plugin mkdocs-localsearch mkdocs-mermaid2-plugin mkdocs-pdf-export-plugin mkdocs-redirects mkdocs-exclude mkdocs-macros-plugin mkdocs-video
+          pip install mkdocs mkdocs-material mkdocs-pdf-export-plugin
 
+      - name: Build MkDocs
+        run: mkdocs build
 
-      - name: Build MkDocs site
-        run: mkdocs build --clean
+      - name: Export PDF
+        run: mkdocs pdf
+
+      - name: Set Tag Name
+        id: tag_name
+        run: |
+          today=$(date +'%Y-%m-%d')
+          tag_prefix="${today}."
+          tag_count=1
+
+          # 查找已有的标签
+          existing_tags=$(git tag --list "${tag_prefix}*")
+
+          # 递增标签计数
+          while [[ $existing_tags == *"$tag_prefix$tag_count"* ]]; do
+            tag_count=$((tag_count + 1))
+          done
+
+          echo "tag_name=${tag_prefix}${tag_count}" >> $GITHUB_ENV
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.DEPLOY_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
-          # 可选配置：
-          # publish_branch: gh-pages  # 目标分支，默认为 gh-pages
-          # force_orphan: true  # 如果需要覆盖历史记录
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.tag_name }}  # 使用生成的标签
+          files: |
+            ./site/*.pdf  # 包含生成的 PDF 文件
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
