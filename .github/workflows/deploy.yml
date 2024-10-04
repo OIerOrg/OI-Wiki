@@ -20,30 +20,13 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-pdf-export-plugin
+          pip install mkdocs mkdocs-material mkdocs-pdf-export-plugin markdown-katex
 
       - name: Build MkDocs
         run: mkdocs build
 
       - name: Export PDF
         run: mkdocs pdf
-
-      - name: Set Tag Name
-        id: tag_name
-        run: |
-          today=$(date +'%Y-%m-%d')
-          tag_prefix="${today}."
-          tag_count=1
-
-          # 查找已有的标签
-          existing_tags=$(git tag --list "${tag_prefix}*")
-
-          # 递增标签计数
-          while [[ $existing_tags == *"$tag_prefix$tag_count"* ]]; do
-            tag_count=$((tag_count + 1))
-          done
-
-          echo "tag_name=${tag_prefix}${tag_count}" >> $GITHUB_ENV
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -54,7 +37,7 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ env.tag_name }}  # 使用生成的标签
+          tag_name: ${{ github.sha }}  # 使用当前提交的 SHA 作为标签
           files: |
             ./site/*.pdf  # 包含生成的 PDF 文件
         env:
