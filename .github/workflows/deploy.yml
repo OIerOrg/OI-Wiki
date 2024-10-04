@@ -27,9 +27,6 @@ jobs:
       - name: Install PDF Export Plugin
         run: pip install mkdocs-pdf-export-plugin
 
-      - name: Install Markdown Extra Data Plugin
-        run: pip install mkdocs-markdownextradata-plugin
-
       - name: Install KaTeX
         run: pip install markdown-katex
 

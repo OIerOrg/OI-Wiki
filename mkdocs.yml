@@ -46,12 +46,6 @@ markdown_extensions:
   - markdown_katex  # 添加 KaTeX 支持
 
 # Plugins
-plugins:
-  - mkdocs-pdf-export-plugin:
-      pdf_file_name: OI_Wiki_Documentation.pdf
-      include_navigation: true
-      include_cover: true
-
 # Extra
 extra:
   comments:
