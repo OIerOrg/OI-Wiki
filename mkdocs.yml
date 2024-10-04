@@ -35,25 +35,29 @@ theme:
     text: 'Roboto'
     code: 'Roboto Mono'
 
-# Plugins
-plugins:
-  - search                       # 搜索插件
-  - git-revision-date-localized  # 显示文件的最后修改日期
-  - minify                       # 压缩 HTML 文件
-  - awesome-pages                # 简化导航栏页面管理
-  - localsearch                  # 本地搜索插件，替代默认的网络搜索
-  - mermaid2                     # 支持 mermaid 流程图和时序图
-  - pdf-export                   # PDF 导出功能
-  - redirects                    # 重定向插件，防止 404 错误
-  - exclude:
-      glob:
-        - "*.tmp"                # 排除不需要的文件
-        - "drafts/*"
-
 # Markdown Extensions
 markdown_extensions:
+  - admonition
+  - codehilite
   - toc:
-      permalink: true            # 为目录添加永久链接
-  - tables                        # 表格支持
-  - fenced_code                   # 支持围栏代码块
-  - pymdownx.arithmatex           # 数学公式支持，替代 mkdocs-katex
+      permalink: true
+  - tables
+  - footnotes
+  - markdown_katex  # 添加 KaTeX 支持
+
+# Plugins
+plugins:
+  - mkdocs-pdf-export-plugin:
+      pdf_file_name: OI_Wiki_Documentation.pdf
+      include_navigation: true
+      include_cover: true
+  - mkdocs-markdownextradata-plugin  # 添加此插件以支持 LaTeX 语法
+
+# Extra
+extra:
+  comments:
+    provider: giscus
+    repo: OIerKimi/OI-Wiki
+    repo_id: YOUR_REPO_ID  # 替换为你的 GitHub 仓库 ID
+    category: Discussions
+    category_id: YOUR_CATEGORY_ID  # 替换为讨论类别 ID
