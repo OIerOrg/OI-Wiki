@@ -20,6 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          pip install --upgrade pip  # 确保 pip 是最新的
           pip install mkdocs mkdocs-material mkdocs-pdf-export-plugin markdown-katex
 
       - name: Build MkDocs
