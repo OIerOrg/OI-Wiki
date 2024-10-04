@@ -11,7 +11,7 @@ repo_url: 'https://github.com/OIerOrg/OI-Wiki'
 edit_uri: 'https://github.com/OIerOrg/OI-Wiki/edit/main/docs/'
 
 # Copyright
-copyright: 'Copyright &copy; 2024 My Team'
+copyright: 'Copyright &copy; 2024 OIerOrg Team'
 
 # Contents
 nav:
@@ -47,7 +47,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - mkdocs-markdownextradata-plugin  # 放在前面以支持 LaTeX
+  - mkdocs-markdownextradata-plugin  # LaTeX 支持
   - mkdocs-pdf-export-plugin:
       pdf_file_name: OI_Wiki_Documentation.pdf
       include_navigation: true

@@ -3,7 +3,7 @@ name: Build and Deploy MkDocs
 on:
   push:
     branches:
-      - main
+      - main  # 在主分支推送时执行
 
 jobs:
   build:
@@ -27,6 +27,9 @@ jobs:
       - name: Install PDF Export Plugin
         run: pip install mkdocs-pdf-export-plugin
 
+      - name: Install Markdown Extra Data Plugin
+        run: pip install mkdocs-markdownextradata-plugin
+
       - name: Install KaTeX
         run: pip install markdown-katex
 
@@ -45,8 +48,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.sha }}
+          tag_name: ${{ github.sha }}  # 使用当前提交的 SHA 作为标签
           files: |
-            ./site/*.pdf
+            ./site/*.pdf  # 包含生成的 PDF 文件
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
