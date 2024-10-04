@@ -47,7 +47,6 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - mkdocs-markdownextradata-plugin  # LaTeX 支持
   - mkdocs-pdf-export-plugin:
       pdf_file_name: OI_Wiki_Documentation.pdf
       include_navigation: true
