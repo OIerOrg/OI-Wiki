@@ -1,14 +1,14 @@
 # Project Information
 site_name: OI-WiKi
 site_description: OI-WiKi
-site_author: OIerKimi Team
-site_url: https://OIerKimi.github.io/OI-Wiki
+site_author: OIerOrg Team
+site_url: https://OIerOrg.github.io/OI-Wiki
 strict: false
 
 # Repository
-repo_name: 'OIerKimi/OI-Wiki'
-repo_url: 'https://github.com/OIerKimi/OI-Wiki'
-edit_uri: 'https://github.com/OIerKimi/OI-Wiki/edit/main/docs/'
+repo_name: 'OIerOrg/OI-Wiki'
+repo_url: 'https://github.com/OIerOrg/OI-Wiki'
+edit_uri: 'https://github.com/OIerOrg/OI-Wiki/edit/main/docs/'
 
 # Copyright
 copyright: 'Copyright &copy; 2024 My Team'
@@ -47,17 +47,17 @@ markdown_extensions:
 
 # Plugins
 plugins:
+  - mkdocs-markdownextradata-plugin  # 放在前面以支持 LaTeX
   - mkdocs-pdf-export-plugin:
       pdf_file_name: OI_Wiki_Documentation.pdf
       include_navigation: true
       include_cover: true
-  - mkdocs-markdownextradata-plugin  # 添加此插件以支持 LaTeX 语法
 
 # Extra
 extra:
   comments:
     provider: giscus
-    repo: OIerKimi/OI-Wiki
-    repo_id: YOUR_REPO_ID  # 替换为你的 GitHub 仓库 ID
+    repo: OIerOrg/OI-Wiki
+    repo_id: 866512692
     category: Discussions
-    category_id: YOUR_CATEGORY_ID  # 替换为讨论类别 ID
+    category_id: 1
