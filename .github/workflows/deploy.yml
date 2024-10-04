@@ -3,7 +3,7 @@ name: Build and Deploy MkDocs
 on:
   push:
     branches:
-      - main  # 在主分支推送时执行
+      - main
 
 jobs:
   build:
@@ -18,10 +18,17 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip  # 确保 pip 是最新的
-          pip install mkdocs mkdocs-material mkdocs-pdf-export-plugin markdown-katex
+      - name: Install MkDocs
+        run: pip install mkdocs
+
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
+
+      - name: Install PDF Export Plugin
+        run: pip install mkdocs-pdf-export-plugin
+
+      - name: Install KaTeX
+        run: pip install markdown-katex
 
       - name: Build MkDocs
         run: mkdocs build
@@ -38,8 +45,8 @@ jobs:
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.sha }}  # 使用当前提交的 SHA 作为标签
+          tag_name: ${{ github.sha }}
           files: |
-            ./site/*.pdf  # 包含生成的 PDF 文件
+            ./site/*.pdf
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
